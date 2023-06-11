@@ -1,5 +1,6 @@
 let express = require("express"),
 	app = express(),
+	cors = require("cors"),
 	session = require("express-session"),
 	{ verifyAuthentication } = require("./middleware/authentication"),
 	apiRoutes = require("./routes/api.routes"),
@@ -7,6 +8,7 @@ let express = require("express"),
 	db = require("./db")
 
 app.use(express.json())
+app.use(cors())
 app.use(
 	session({
 		secret: "message",
